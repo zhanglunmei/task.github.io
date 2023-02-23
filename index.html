@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="voiceinator">
+        <button id="stop">Stop!</button>
+        <button id="speak">Speak</button>
+    </div>
+
+    <script>
+
+        const synth = window.speechSynthesis
+        const msg = new SpeechSynthesisUtterance()
+        msg.text = 'a'
+        msg.lang = 'zh-CN'
+
+        const speakButton = document.querySelector('#speak')
+        const stopButton = document.querySelector('#stop')
+
+        speakButton.addEventListener('click', handleSpeak)
+        stopButton.addEventListener('click', handleStop)
+
+        function handleSpeak(e) {
+            synth.speak(msg)
+        }
+        function handleStop(e) {
+            synth.cancel(msg)
+        }
+
+    </script>
+</body>
+
+</html>
